@@ -244,8 +244,20 @@
       alert("Something went wrong");
     }
   });
-</script>
 
+<script>
+  const counterEl = document.getElementById("counter-number");
+  const counterRef = db.collection("stats").doc("counter");
+
+  // اقرأ الرقم أول ما الصفحة تفتح
+  counterRef.onSnapshot((doc) => {
+    if (doc.exists) {
+      counterEl.textContent = doc.data().total || 0;
+    } else {
+      counterEl.textContent = 0;
+    }
+  });
+</script>
 
 </body>
 </html>
