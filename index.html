@@ -274,6 +274,37 @@
     }
   });
 
+  <script>
+  const messagesList = document.getElementById("messages-list");
+
+  db.collection("messages")
+    .orderBy("createdAt", "desc")
+    .limit(10)
+    .onSnapshot((snapshot) => {
+      messagesList.innerHTML = ""; // نمسح القديم
+
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+
+        const card = document.createElement("div");
+        card.className = "message-card";
+
+        const text = document.createElement("div");
+        text.className = "message-text";
+        text.textContent = data.message;
+
+        const name = document.createElement("div");
+        name.className = "message-name";
+        name.textContent = `— ${data.name || "Anonymous"}`;
+
+        card.appendChild(text);
+        card.appendChild(name);
+        messagesList.appendChild(card);
+      });
+    });
+
+
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
