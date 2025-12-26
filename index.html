@@ -194,8 +194,7 @@
   <footer>
     This website is a peaceful, non-profit humanitarian initiative.
   </footer>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-
+  
   <!-- Firebase App (لازم قبل Firestore) -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 
@@ -237,7 +236,7 @@ try {
   const btn = form.querySelector("button");
   btn.disabled = true;
 
-  // ===== زر الانتظار 10 ثواني =====
+  // ===== زر انتظار 10 ثواني =====
   let countdown = 10;
   const originalText = btn.innerText;
   btn.innerText = `Your voice matters… ${countdown}s`;
@@ -259,11 +258,12 @@ try {
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   });
 
-  // ===== زيادة العداد (آمن) =====
+  // ===== تحديث العداد (مستحيل يرجع صفر) =====
   const counterRef = db.collection("stats").doc("counter");
-  await counterRef.update({
-    total: firebase.firestore.FieldValue.increment(1)
-  });
+  await counterRef.set(
+    { total: firebase.firestore.FieldValue.increment(1) },
+    { merge: true }
+  );
 
   form.reset();
   alert("Your voice has been added 🤍");
