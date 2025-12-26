@@ -4,6 +4,48 @@
   <meta charset="UTF-8" />
   <title>Peace & Justice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+.support-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.support-form input,
+.support-form textarea {
+  padding: 12px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.support-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.support-btn {
+  margin-top: 10px;
+  background: #2E7D32;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.support-btn:hover {
+  background: #1B5E20;
+}
+
+.privacy-note {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
 
   <style>
     body {
@@ -110,6 +152,30 @@
       onclick="document.getElementById('arabic').scrollIntoView({ behavior: 'smooth' });">
       ↓ Read in Arabic
     </button>
+    <h2>Express Your Support</h2>
+
+<form class="support-form">
+  <input
+    type="text"
+    placeholder="Your name (optional)"
+    maxlength="50"
+  />
+
+  <textarea
+    placeholder="Write a short message supporting peace and justice…"
+    maxlength="250"
+    required
+  ></textarea>
+
+  <button type="submit" class="support-btn">
+    🤍 Support Peace / Justice 🤍
+  </button>
+
+  <p class="privacy-note">
+    No emails. No tracking. No personal data collected.
+  </p>
+</form>
+
   </div>
 
   <div class="arabic" id="arabic">
