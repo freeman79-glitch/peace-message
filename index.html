@@ -23,41 +23,97 @@
     h1 {
       color: #2E7D32;
       font-size: 2.8rem;
-      margin-bottom: 10px;
       text-align: center;
-    }
-
-    h2 {
-      color: #2E7D32;
-      margin-top: 40px;
-    }
-
-    p {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .subtitle {
       text-align: center;
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 35px;
+    }
+
+    /* ===== Live Counter ===== */
+    .hero-counter {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .counter-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: #E8F5E9;
+      border: 4px solid #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+
+    #counter-number {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #2E7D32;
+    }
+
+    .counter-text {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .counter-sub {
       font-size: 1rem;
       color: #555;
     }
 
-    .scroll-btn {
-      display: block;
-      margin: 25px auto;
-      padding: 10px 22px;
-      background: transparent;
-      border: 2px solid #2E7D32;
+    h2 {
       color: #2E7D32;
-      font-size: 0.95rem;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: 0.3s;
+      margin-top: 50px;
     }
 
-    .scroll-btn:hover {
+    /* ===== Support Form ===== */
+    .support-form {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .support-form input,
+    .support-form textarea {
+      padding: 12px;
+      font-size: 0.95rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .support-btn {
       background: #2E7D32;
       color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .support-btn:hover {
+      background: #1B5E20;
+    }
+
+    .privacy-note {
+      font-size: 0.95rem;
+      color: #555;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .privacy-note.trust {
+      color: #2E7D32;
+      font-weight: 500;
     }
 
     .arabic {
@@ -68,287 +124,80 @@
     }
 
     footer {
-  margin-top: 60px;
-  font-size: 0.8rem;
-  color: #666;
-  text-align: center;
-}
-    .privacy-note.trust {
-  color: #2E7D32;
-  font-weight: 500;
-}
-
-
-/* ===== Support Form ===== */
-.support-form {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.support-form input,
-.support-form textarea {
-  padding: 12px;
-  font-size: 0.95rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: inherit;
-}
-
-.support-form textarea {
-  resize: vertical;
-  min-height: 90px;
-}
-
-.support-btn {
-  margin-top: 10px;
-  background: #2E7D32;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.support-btn:hover {
-  background: #1B5E20;
-}
-
-.privacy-note {
-  font-size: 1rem;
-  color: #666;
-  text-align: center;
-  margin: 6px 0;   /* ← دا اللي هيقرب السطور */
-  line-height: 1.4;
-}
-
-
-.privacy-note {
-  font-size: 0.95rem;   /* كبرناها شوية */
-  color: #555;
-  margin-top: 12px;
-  text-align: center;
-}
-
-.impact-note {
-  font-size: 1rem;      /* دي أقوى شوية */
-  color: #2E7D32;
-  margin-top: 16px;
-  font-weight: 500;
-  text-align: center;
-}
-
-    
-    
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #666;
+      text-align: center;
+    }
   </style>
-  
 </head>
 
 <body>
-<div class="hero">
 
-  <div class="hero-text">
+  <div class="container">
     <h1>Peace is a Human Right</h1>
 
     <div class="subtitle">
       A peaceful humanitarian message supporting dignity, justice, and the protection of civilians.
     </div>
-  </div>
 
-  <div class="hero-counter">
-    <div class="counter-circle">
-      <span id="counter-number">0</span>
+    <div class="hero-counter">
+      <div class="counter-circle">
+        <span id="counter-number">0</span>
+      </div>
+
+      <div class="counter-text">
+        You are not alone. Others stood here too.
+      </div>
+
+      <div class="counter-sub">
+        Support here is not about money.<br>
+        It’s about standing together.
+      </div>
     </div>
 
-    <p class="counter-text">
-      You are not alone.<br>
-      Others stood here too.
-    </p>
-
-    <p class="counter-sub">
-      Support here is not about money.<br>
-      It’s about standing together.
-    </p>
-  </div>
-
-</div>
-
-
-<div class="hero">
-  
-  <div class="hero-text">
-    <h1>Peace is a Human Right</h1>
-
-    <div class="subtitle">
-      A peaceful humanitarian message supporting dignity, justice, and the protection of civilians.
-    </div>
-  </div>
-
-  <div class="hero-counter">
-    <div class="counter-circle">
-      <span id="counter-number">0</span>
-    </div>
-
-    <p class="counter-text">
-      You are not alone.<br>
-      Others stood here too.
-    </p>
-
-    <p class="counter-sub">
-      Support here is not about money.<br>
-      It’s about standing together.
-    </p>
-  </div>
-
-</div>
-
-    <h2>Humanitarian Statement</h2>
-
-    <p>
-      We believe that every human being deserves safety, dignity, education,
-      and a future free from fear.
-    </p>
-
-    <p>
-      We reject the killing of civilians, the displacement of families,
-      and the suffering of children anywhere in the world.
-    </p>
-
-    <p>
-      Peace without justice is fragile.<br />
-      Justice without humanity is empty.
-    </p>
-
-    <p>
-      Standing for <strong>Peace and Justice</strong> is not a political position —
-      it is a human one.
-    </p>
-
-    <button class="scroll-btn"
-      onclick="document.getElementById('arabic').scrollIntoView({ behavior: 'smooth' });">
-      ↓ Read in Arabic
-    </button>
     <h2>Express Your Support</h2>
 
-<form class="support-form">
-  <input
-    type="text"
-    placeholder="Your name (optional)"
-    maxlength="50"
-  />
+    <form class="support-form">
+      <input type="text" placeholder="Your name (optional)" maxlength="50" />
+      <textarea placeholder="Write a short message supporting peace and justice…" maxlength="250" required></textarea>
 
-  <textarea
-    placeholder="Write a short message supporting peace and justice…"
-    maxlength="250"
-    required
-  ></textarea>
+      <button type="submit" class="support-btn">
+        🤍 Support Peace / Justice 🤍
+      </button>
 
-<button type="submit" class="support-btn">
-  🤍 Support Peace / Justice 🤍
-</button>
-
-<p class="privacy-note trust">
-   🔒 No emails. No tracking. No personal data collected.
-</p>
-
-<p class="privacy-note">
-    By clicking support, your message will be added and you become one more voice for peace.
-</p>
-
-<p class="privacy-note">
-  Every message matters. Every voice counts.
-</p>
-
-
-</form>
- 
-</div>
+      <p class="privacy-note trust">🔒 No emails. No tracking. No personal data collected.</p>
+      <p class="privacy-note">Every message matters. Every voice counts.</p>
+    </form>
+  </div>
 
   <div class="arabic" id="arabic">
     <div class="container">
       <h2>بيان إنساني من أجل السلام</h2>
-
-      <p>
-        نؤمن بأن لكل إنسان حقًا أصيلًا في الحياة، والأمان، والتعليم،
-        ومستقبل بلا خوف.
-      </p>
-
-      <p>
-        نرفض قتل المدنيين، وتشريد العائلات، ومعاناة الأطفال،
-        ونقف مع حق الشعوب المظلومة — وعلى رأسها الشعب الفلسطيني —
-        في العيش بكرامة وعدالة.
-      </p>
-
-      <p>
-        لا سلام بلا عدالة، ولا عدالة بلا إنسانية.
-      </p>
+      <p>نؤمن بأن لكل إنسان حقًا أصيلًا في الحياة والكرامة.</p>
+      <p>لا سلام بلا عدالة، ولا عدالة بلا إنسانية.</p>
     </div>
   </div>
 
   <footer>
-    This website is a peaceful, non-profit humanitarian initiative.<br />
-    No personal data is collected.
+    This website is a peaceful, non-profit humanitarian initiative.
   </footer>
-<!-- Firebase App -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 
-<!-- Firestore -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyD9jT4Np4HlpyepDmqJVDSZsoVEVzUdmuA",
-    authDomain: "peace-message-fe62c.firebaseapp.com",
-    projectId: "peace-message-fe62c",
-    storageBucket: "peace-message-fe62c.appspot.com",
-    messagingSenderId: "383727034964",
-    appId: "1:383727034964:web:bd8684a613440f12a303c1"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-</script>
   <script>
-const form = document.querySelector(".support-form");
+    const firebaseConfig = {
+      apiKey: "AIzaSyD9jT4Np4HlpyepDmqJVDSZsoVEVzUdmuA",
+      authDomain: "peace-message-fe62c.firebaseapp.com",
+      projectId: "peace-message-fe62c"
+    };
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-  const name = form.querySelector('input[type="text"]').value.trim();
-  const message = form.querySelector("textarea").value.trim();
+    const form = document.querySelector(".support-form");
+    const counterEl = document.getElementById("counter-number");
 
-  if (!message) return;
-
-  try {
-    // 1️⃣ إضافة الرسالة
-    await db.collection("messages").add({
-      name: name || "Anonymous",
-      message: message,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    // 2️⃣ زيادة العداد
-    const counterRef = db.collection("stats").doc("counter");
-    await counterRef.update({
-      total: firebase.firestore.FieldValue.increment(1)
-    });
-
-    // 3️⃣ تنظيف الفورم
-    form.reset();
-
-    alert("Your voice has been added 🤍");
-
-  } catch (error) {
-    console.error(error);
-    alert("Something went wrong. Please try again.");
-  }
-});
-</script>
-
-
-
-</body>
-</html>
+    db.collection("stats").doc("counter").onSnapshot
