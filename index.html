@@ -1,176 +1,142 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>رسالة إنسانية من أجل السلام</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Peace & Justice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
       margin: 0;
-      padding: 0;
-      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #333;
+      line-height: 1.6;
     }
 
     .container {
       max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin: auto;
+      padding: 40px 20px;
     }
 
     h1 {
+      color: #2E7D32;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
       text-align: center;
-      margin-bottom: 25px;
     }
 
     h2 {
+      color: #2E7D32;
       margin-top: 40px;
     }
 
     p {
-      line-height: 1.8;
-      font-size: 17px;
       margin-bottom: 15px;
     }
 
-    .counter {
+    .subtitle {
       text-align: center;
-      font-size: 20px;
-      margin: 30px 0;
-      font-weight: bold;
-    }
-
-    button {
-      display: block;
-      margin: 20px auto;
-      padding: 12px 35px;
-      font-size: 18px;
-      background: #2c7be5;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      background: #999;
-      cursor: not-allowed;
-    }
-
-    .note {
-      text-align: center;
-      font-size: 14px;
+      font-size: 1rem;
       color: #555;
-      margin-top: 10px;
+    }
+
+    .scroll-btn {
+      display: block;
+      margin: 25px auto;
+      padding: 10px 22px;
+      background: transparent;
+      border: 2px solid #2E7D32;
+      color: #2E7D32;
+      font-size: 0.95rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .scroll-btn:hover {
+      background: #2E7D32;
+      color: #fff;
+    }
+
+    .arabic {
+      background: #E8F5E9;
+      padding: 40px 20px;
+      margin-top: 60px;
+      direction: rtl;
     }
 
     footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
+      margin-top: 60px;
+      font-size: 0.8rem;
       color: #666;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>🕊️ رسالة إنسانية من أجل السلام</h1>
+  <div class="container">
+    <h1>Peace is a Human Right</h1>
+    <div class="subtitle">
+      A peaceful humanitarian message supporting dignity, justice, and the protection of civilians.
+    </div>
 
-  <p>
-    هذا الموقع تعبير سلمي وإنساني عن رفض قتل المدنيين،
-    ورفض استهداف الأطفال، ورفض تحويل البشر إلى أرقام.
-  </p>
+    <h2>Humanitarian Statement</h2>
 
-  <p>
-    ما يحدث في غزة اليوم هو معاناة حقيقية لشعب يُحرم من
-    أبسط حقوقه: الأمان، الغذاء، العلاج، والتعليم.
-  </p>
+    <p>
+      We believe that every human being deserves safety, dignity, education,
+      and a future free from fear.
+    </p>
 
-  <p>
-    دعمك هنا هو موقف أخلاقي ورسالة سلام،
-    واعتراف واضح بإنسانية الشعب الفلسطيني
-    وحقه في الحياة بكرامة مثل أي إنسان في العالم.
-  </p>
+    <p>
+      We reject the killing of civilians, the displacement of families,
+      and the suffering of children anywhere in the world.
+    </p>
 
-  <div class="counter">
-    عدد الداعمين: <span id="count">...</span>
+    <p>
+      Peace without justice is fragile.<br />
+      Justice without humanity is empty.
+    </p>
+
+    <p>
+      Standing for <strong>Peace and Justice</strong> is not a political position —
+      it is a human one.
+    </p>
+
+    <button class="scroll-btn"
+      onclick="document.getElementById('arabic').scrollIntoView({ behavior: 'smooth' });">
+      ↓ Read in Arabic
+    </button>
   </div>
 
-  <button id="supportBtn">أوافق / أدعم</button>
-  <div class="note">
-    دعم واحد فقط لكل جهاز – لا يتم جمع أي بيانات
+  <div class="arabic" id="arabic">
+    <div class="container">
+      <h2>بيان إنساني من أجل السلام</h2>
+
+      <p>
+        نؤمن بأن لكل إنسان حقًا أصيلًا في الحياة، والأمان، والتعليم،
+        ومستقبل بلا خوف.
+      </p>
+
+      <p>
+        نرفض قتل المدنيين، وتشريد العائلات، ومعاناة الأطفال،
+        ونقف مع حق الشعوب المظلومة — وعلى رأسها الشعب الفلسطيني —
+        في العيش بكرامة وعدالة.
+      </p>
+
+      <p>
+        لا سلام بلا عدالة، ولا عدالة بلا إنسانية.
+      </p>
+    </div>
   </div>
-
-  <h2>🕊️ A Humanitarian Statement for Peace</h2>
-
-  <p>
-    This website is a peaceful humanitarian expression
-    rejecting the killing of civilians and the targeting
-    of children.
-  </p>
-
-  <p>
-    What is happening in Gaza today is not an abstract
-    conflict, but a real suffering of people deprived of
-    safety, food, healthcare, and education.
-  </p>
-
-  <p>
-    Supporting this message means taking a moral stand
-    and recognizing the right of Palestinians to live
-    with dignity and peace.
-  </p>
 
   <footer>
-    This website does not collect donations or personal data.
+    This website is a peaceful, non-profit humanitarian initiative.<br />
+    No personal data is collected.
   </footer>
-</div>
-
-<script>
-  const namespace = "peace-gaza-humanity";
-  const key = "supporters";
-
-  const countEl = document.getElementById("count");
-  const btn = document.getElementById("supportBtn");
-
-  let canSupport = false;
-
-  fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-    .then(res => res.json())
-    .then(data => {
-      countEl.textContent = data.value || 0;
-    });
-
-  setTimeout(() => {
-    window.addEventListener("scroll", () => canSupport = true, { once: true });
-    window.addEventListener("mousemove", () => canSupport = true, { once: true });
-  }, 5000);
-
-  if (localStorage.getItem("supported")) {
-    btn.disabled = true;
-    btn.textContent = "تم الدعم ✓";
-  }
-
-  btn.addEventListener("click", () => {
-    if (!canSupport) return;
-
-    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-      .then(res => res.json())
-      .then(data => {
-        countEl.textContent = data.value;
-        btn.disabled = true;
-        btn.textContent = "تم الدعم ✓";
-        localStorage.setItem("supported", "yes");
-      });
-  });
-</script>
 
 </body>
 </html>
