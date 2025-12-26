@@ -260,6 +260,43 @@
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 </script>
+  <script>
+const form = document.querySelector(".support-form");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = form.querySelector('input[type="text"]').value.trim();
+  const message = form.querySelector("textarea").value.trim();
+
+  if (!message) return;
+
+  try {
+    // 1️⃣ إضافة الرسالة
+    await db.collection("messages").add({
+      name: name || "Anonymous",
+      message: message,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // 2️⃣ زيادة العداد
+    const counterRef = db.collection("stats").doc("counter");
+    await counterRef.update({
+      total: firebase.firestore.FieldValue.increment(1)
+    });
+
+    // 3️⃣ تنظيف الفورم
+    form.reset();
+
+    alert("Your voice has been added 🤍");
+
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong. Please try again.");
+  }
+});
+</script>
+
 
 
 </body>
