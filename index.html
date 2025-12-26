@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>رسالة إنسانية من أجل السلام</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 20px;
+      margin: 30px 0;
+      font-weight: bold;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 35px;
+      font-size: 18px;
+      background: #2c7be5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🕊️ رسالة إنسانية من أجل السلام</h1>
+
+  <p>
+    هذا الموقع تعبير سلمي وإنساني عن رفض قتل المدنيين،
+    ورفض استهداف الأطفال، ورفض تحويل البشر إلى أرقام.
+  </p>
+
+  <p>
+    ما يحدث في غزة اليوم هو معاناة حقيقية لشعب يُحرم من
+    أبسط حقوقه: الأمان، الغذاء، العلاج، والتعليم.
+  </p>
+
+  <p>
+    دعمك هنا هو موقف أخلاقي ورسالة سلام،
+    واعتراف واضح بإنسانية الشعب الفلسطيني
+    وحقه في الحياة بكرامة مثل أي إنسان في العالم.
+  </p>
+
+  <div class="counter">
+    عدد الداعمين: <span id="count">...</span>
+  </div>
+
+  <button id="supportBtn">أوافق / أدعم</button>
+  <div class="note">
+    دعم واحد فقط لكل جهاز – لا يتم جمع أي بيانات
+  </div>
+
+  <h2>🕊️ A Humanitarian Statement for Peace</h2>
+
+  <p>
+    This website is a peaceful humanitarian expression
+    rejecting the killing of civilians and the targeting
+    of children.
+  </p>
+
+  <p>
+    What is happening in Gaza today is not an abstract
+    conflict, but a real suffering of people deprived of
+    safety, food, healthcare, and education.
+  </p>
+
+  <p>
+    Supporting this message means taking a moral stand
+    and recognizing the right of Palestinians to live
+    with dignity and peace.
+  </p>
+
+  <footer>
+    This website does not collect donations or personal data.
+  </footer>
+</div>
+
+<script>
+  const namespace = "peace-gaza-humanity";
+  const key = "supporters";
+
+  const countEl = document.getElementById("count");
+  const btn = document.getElementById("supportBtn");
+
+  let canSupport = false;
+
+  fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
+    .then(res => res.json())
+    .then(data => {
+      countEl.textContent = data.value || 0;
+    });
+
+  setTimeout(() => {
+    window.addEventListener("scroll", () => canSupport = true, { once: true });
+    window.addEventListener("mousemove", () => canSupport = true, { once: true });
+  }, 5000);
+
+  if (localStorage.getItem("supported")) {
+    btn.disabled = true;
+    btn.textContent = "تم الدعم ✓";
+  }
+
+  btn.addEventListener("click", () => {
+    if (!canSupport) return;
+
+    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+      .then(res => res.json())
+      .then(data => {
+        countEl.textContent = data.value;
+        btn.disabled = true;
+        btn.textContent = "تم الدعم ✓";
+        localStorage.setItem("supported", "yes");
+      });
+  });
+</script>
+
+</body>
+</html>
