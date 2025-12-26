@@ -235,43 +235,47 @@ try {
   const btn = form.querySelector("button");
   btn.disabled = true;
 
+  // ===== زر الانتظار 10 ثواني =====
   let countdown = 10;
   const originalText = btn.innerText;
-  btn.innerText = `Please wait ${countdown}s…`;
+  btn.innerText = `Your voice matters… ${countdown}s`;
 
   const timer = setInterval(() => {
     countdown--;
-    btn.innerText = `Please wait ${countdown}s…`;
-    if (countdown === 0) {
+    btn.innerText = `Your voice matters… ${countdown}s`;
+    if (countdown <= 0) {
       clearInterval(timer);
       btn.disabled = false;
       btn.innerText = originalText;
     }
   }, 1000);
 
+  // ===== إضافة الرسالة =====
   await db.collection("messages").add({
     name: name || "Anonymous",
     message,
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   });
 
+  // ===== زيادة العداد (آمن) =====
   const counterRef = db.collection("stats").doc("counter");
-  await counterRef.set(
-    { total: firebase.firestore.FieldValue.increment(1) },
-    { merge: true }
-  );
+  await counterRef.update({
+    total: firebase.firestore.FieldValue.increment(1)
+  });
 
   form.reset();
   alert("Your voice has been added 🤍");
 
 } catch (err) {
   console.error(err);
-  alert("Something went wrong");
 
   const btn = form.querySelector("button");
   btn.disabled = false;
   btn.innerText = "🤍 Support Peace / Justice 🤍";
+
+  alert("Something went wrong. Please try again.");
 }
+
 
 </body>
 </html>
