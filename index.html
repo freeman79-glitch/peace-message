@@ -194,8 +194,8 @@
   <footer>
     This website is a peaceful, non-profit humanitarian initiative.
   </footer>
-<!-- Firebase App -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+
 
 <!-- Firestore -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
@@ -216,6 +216,13 @@
 
 <script>
   const form = document.querySelector(".support-form");
+  const counterEl = document.getElementById("counter-number");
+  const counterRef = db.collection("stats").doc("counter");
+
+  // قراءة العداد أول ما الصفحة تفتح
+  counterRef.onSnapshot((doc) => {
+    counterEl.textContent = doc.exists ? (doc.data().total || 0) : 0;
+  });
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -231,7 +238,6 @@
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       });
 
-      const counterRef = db.collection("stats").doc("counter");
       await counterRef.set(
         { total: firebase.firestore.FieldValue.increment(1) },
         { merge: true }
@@ -244,20 +250,10 @@
       alert("Something went wrong");
     }
   });
-
-</script>
-  const counterEl = document.getElementById("counter-number");
-  const counterRef = db.collection("stats").doc("counter");
-
-  // اقرأ الرقم أول ما الصفحة تفتح
-  counterRef.onSnapshot((doc) => {
-    if (doc.exists) {
-      counterEl.textContent = doc.data().total || 0;
-    } else {
-      counterEl.textContent = 0;
-    }
-  });
 </script>
 
+
+
+  
 </body>
 </html>
