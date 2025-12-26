@@ -274,33 +274,35 @@
     }
   });
 
-  const messagesList = document.getElementById("messages-list");
+ const messagesList = document.getElementById("messages-list");
 
-  db.collection("messages")
-    .orderBy("createdAt", "desc")
-    .limit(10)
-    .onSnapshot((snapshot) => {
-      messagesList.innerHTML = ""; // نمسح القديم
+db.collection("public_messages")
+  .where("createdAt", "!=", null)
+  .orderBy("createdAt", "desc")
+  .limit(10)
+  .onSnapshot((snapshot) => {
+    messagesList.innerHTML = "";
 
-      snapshot.forEach((doc) => {
-        const data = doc.data();
+    snapshot.forEach((doc) => {
+      const data = doc.data();
 
-        const card = document.createElement("div");
-        card.className = "message-card";
+      const card = document.createElement("div");
+      card.className = "message-card";
 
-        const text = document.createElement("div");
-        text.className = "message-text";
-        text.textContent = data.message;
+      const text = document.createElement("div");
+      text.className = "message-text";
+      text.textContent = data.message;
 
-        const name = document.createElement("div");
-        name.className = "message-name";
-        name.textContent = `— ${data.name || "Anonymous"}`;
+      const name = document.createElement("div");
+      name.className = "message-name";
+      name.textContent = `— ${data.name || "Anonymous"}`;
 
-        card.appendChild(text);
-        card.appendChild(name);
-        messagesList.appendChild(card);
-      });
+      card.appendChild(text);
+      card.appendChild(name);
+      messagesList.appendChild(card);
     });
+  });
+
 
 
 
@@ -332,11 +334,12 @@
       }, 1000);
 
       // ✍️ إضافة الرسالة
-      await db.collection("messages").add({
-        name: name || "Anonymous",
-        message,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
+await db.collection("public_messages").add({
+  name: name || "Anonymous",
+  message,
+  createdAt: firebase.firestore.FieldValue.serverTimestamp()
+});
+
 
       // ➕ زيادة العداد (آمن)
       await counterRef.set(
