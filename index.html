@@ -220,10 +220,7 @@
   const counterEl = document.getElementById("counter-number");
   const counterRef = db.collection("stats").doc("counter");
 
-  // قراءة العداد أول ما الصفحة تفتح
-  counterRef.onSnapshot((doc) => {
-    counterEl.textContent = doc.exists ? (doc.data().total || 0) : 0;
-  });
+// قراءة العداد أول ما الصفحة تفتح
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
