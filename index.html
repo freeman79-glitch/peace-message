@@ -231,24 +231,31 @@
     const message = form.querySelector("textarea").value.trim();
     if (!message) return;
 
-    try {
-      await db.collection("messages").add({
-        name: name || "Anonymous",
-        message,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
+try {
+  const btn = form.querySelector("button");
+  btn.disabled = true;
 
-      await counterRef.set(
-        { total: firebase.firestore.FieldValue.increment(1) },
-        { merge: true }
-      );
+  await db.collection("messages").add({
+    name: name || "Anonymous",
+    message,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  });
 
-      form.reset();
-      alert("Your voice has been added 🤍");
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
-    }
+  const counterRef = db.collection("stats").doc("counter");
+  await counterRef.set(
+    { total: firebase.firestore.FieldValue.increment(1) },
+    { merge: true }
+  );
+
+  form.reset();
+
+  setTimeout(() => {
+    btn.disabled = false;
+  }, 2000);
+
+  alert("Your voice has been added 🤍");
+}
+
   });
 </script>
 
