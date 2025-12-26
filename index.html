@@ -235,6 +235,20 @@ try {
   const btn = form.querySelector("button");
   btn.disabled = true;
 
+  let countdown = 10;
+  const originalText = btn.innerText;
+  btn.innerText = `Please wait ${countdown}s…`;
+
+  const timer = setInterval(() => {
+    countdown--;
+    btn.innerText = `Please wait ${countdown}s…`;
+    if (countdown === 0) {
+      clearInterval(timer);
+      btn.disabled = false;
+      btn.innerText = originalText;
+    }
+  }, 1000);
+
   await db.collection("messages").add({
     name: name || "Anonymous",
     message,
@@ -248,19 +262,16 @@ try {
   );
 
   form.reset();
-
-  setTimeout(() => {
-    btn.disabled = false;
-  }, 2000);
-
   alert("Your voice has been added 🤍");
+
+} catch (err) {
+  console.error(err);
+  alert("Something went wrong");
+
+  const btn = form.querySelector("button");
+  btn.disabled = false;
+  btn.innerText = "🤍 Support Peace / Justice 🤍";
 }
 
-  });
-</script>
-
-
-
-  
 </body>
 </html>
